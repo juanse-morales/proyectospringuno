@@ -9,23 +9,12 @@
     http://www.springframework.org/schema/context/spring-context-3.1.xsd
 ">
 
-  <context:property-placeholder location="classpath:datosEmpresa.propiedades" />
-
   <!-- Creación de la dependencia -->
   <bean id="miInforme" class="es.pildoras.IoC.Informe"></bean>
 
-  <bean id="miEmpleado" class="es.pildoras.IoC.DirectorEmpleado">
-    <constructor-arg ref="miInforme"></constructor-arg>
-    
-    <property name="email" value="${email}"></property>
-    <property name="nombreEmpresa" value="${nombreEmpresa}"></property>
-  
-  </bean>
-
-  <bean id="miSecretarioEmpleado" class="es.pildoras.IoC.SecretarioEmpleado">
+  <bean id="miSecretarioEmpleado" class="es.pildoras.IoC.SecretarioEmpleado" scope="prototype">
     <property name="informeNuevo" ref="miInforme"></property>
-    <property name="email" value="secretaria@gmail.com"></property>
-    <property name="nombreEmpresa" value="DCA"></property>
+    
   </bean>
 
 </beans>
