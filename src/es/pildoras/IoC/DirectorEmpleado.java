@@ -38,5 +38,18 @@ public class DirectorEmpleado implements Empleados {
 	public void setNombreEmpresa(String nombreEmpresa) {
 		this.nombreEmpresa = nombreEmpresa;
 	}
+	
+	
+	// Ejecutar tareas antes de que el Bean esté disponible
+	
+	public void init() {
+		System.out.println("Init.");
+	}
+	
+	
+	// Ejecutar tareas después que el bean haya sido utilizado
 
+	public void destroy() {
+		System.out.println("Destroy");
+	}
 }
